@@ -15,6 +15,7 @@
 		CC1047021E6FD9120062BF32 /* Notes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CC1047001E6FD9120062BF32 /* Notes.xcdatamodeld */; };
 		CC1047041E6FDA670062BF32 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1047031E6FDA670062BF32 /* CoreDataManager.swift */; };
 		CC1047061E6FDAFD0062BF32 /* AddNoteViewContorller.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1047051E6FDAFD0062BF32 /* AddNoteViewContorller.swift */; };
+		CCE3AB3A1E6FF7FD003CC1B8 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE3AB391E6FF7FD003CC1B8 /* NoteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		CC1047011E6FD9120062BF32 /* Notes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Notes.xcdatamodel; sourceTree = "<group>"; };
 		CC1047031E6FDA670062BF32 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		CC1047051E6FDAFD0062BF32 /* AddNoteViewContorller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNoteViewContorller.swift; sourceTree = "<group>"; };
+		CCE3AB391E6FF7FD003CC1B8 /* NoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			children = (
 				CC1046EE1E6FD8780062BF32 /* AppDelegate.swift */,
 				CC1046F01E6FD8780062BF32 /* ViewController.swift */,
+				CCE3AB391E6FF7FD003CC1B8 /* NoteViewController.swift */,
 				CC1047051E6FDAFD0062BF32 /* AddNoteViewContorller.swift */,
 				CC1047031E6FDA670062BF32 /* CoreDataManager.swift */,
 				CC1046F21E6FD8790062BF32 /* Main.storyboard */,
@@ -150,6 +153,7 @@
 				CC1046F11E6FD8780062BF32 /* ViewController.swift in Sources */,
 				CC1047021E6FD9120062BF32 /* Notes.xcdatamodeld in Sources */,
 				CC1047041E6FDA670062BF32 /* CoreDataManager.swift in Sources */,
+				CCE3AB3A1E6FF7FD003CC1B8 /* NoteViewController.swift in Sources */,
 				CC1046EF1E6FD8780062BF32 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,6 +316,7 @@
 				CC1046FF1E6FD8790062BF32 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
