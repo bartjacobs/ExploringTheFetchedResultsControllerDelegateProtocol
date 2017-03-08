@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         let fetchRequest: NSFetchRequest<Note> = Note.fetchRequest()
 
         // Add Sort Descriptors
-        let sortDescriptor = NSSortDescriptor(key: "createdAt", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "updatedAt", ascending: false)
         fetchRequest.sortDescriptors = [sortDescriptor]
 
         // Initialize Fetched Results Controller
@@ -55,12 +55,27 @@ class ViewController: UIViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == "SegueAddNoteViewController" else { return }
-        guard let navigationController = segue.destination as? UINavigationController else { return }
-        guard let viewController = navigationController.viewControllers.first as? AddNoteViewController else { return }
+        guard let identifier = segue.identifier else { return }
 
-        // Configure View Controller
-        viewController.delegate = self
+        switch identifier {
+        case "SegueAddNoteViewController":
+            guard let navigationController = segue.destination as? UINavigationController else { return }
+            guard let viewController = navigationController.viewControllers.first as? AddNoteViewController else { return }
+
+            // Configure View Controller
+            viewController.delegate = self
+        case "SegueNoteViewController":
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            guard let viewController = segue.destination as? NoteViewController else { return }
+
+            // Fetch Note
+            let note = fetchedResultsController.object(at: indexPath)
+
+            // Configure View Controller
+            viewController.note = note
+        default:
+            print("Unknown Segue")
+        }
     }
 
 }
@@ -126,6 +141,16 @@ extension ViewController: UITableViewDataSource {
         return cell
     }
 
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        guard editingStyle == .delete else { return }
+
+        // Fetch Note
+        let note = fetchedResultsController.object(at: indexPath)
+
+        // Delete Note
+        fetchedResultsController.managedObjectContext.delete(note)
+    }
+
     func configureCell(_ cell: UITableViewCell, at indexPath: IndexPath) {
         // Fetch Note
         let note = fetchedResultsController.object(at: indexPath)
@@ -138,6 +163,10 @@ extension ViewController: UITableViewDataSource {
 }
 
 extension ViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 
 }
 
