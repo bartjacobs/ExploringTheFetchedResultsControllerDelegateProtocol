@@ -141,7 +141,7 @@ extension ViewController: UITableViewDataSource {
         return cell
     }
 
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }
 
         // Fetch Note
@@ -179,8 +179,8 @@ extension ViewController: AddNoteViewControllerDelegate {
         // Populate Note
         note.content = ""
         note.title = title
-        note.updatedAt = NSDate()
-        note.createdAt = NSDate()
+        note.updatedAt = Date()
+        note.createdAt = Date()
 
         do {
             try note.managedObjectContext?.save()

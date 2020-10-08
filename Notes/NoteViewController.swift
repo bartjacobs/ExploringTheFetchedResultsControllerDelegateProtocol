@@ -38,7 +38,7 @@ class NoteViewController: UIViewController {
         // Update Note
         note?.title = title
         note?.content = content
-        note?.updatedAt = NSDate()
+        note?.updatedAt = Date()
 
         // Pop View Controller From Navigation Stack
         _ = navigationController?.popViewController(animated: true)
